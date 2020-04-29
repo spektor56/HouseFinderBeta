@@ -330,8 +330,8 @@
                             PropertyTypeGroupID: "1",
                             PropertySearchTypeId: "1",
                             TransactionTypeId: "2",
-                            PriceMin: "600000",
-                            PriceMax: "800000",
+                            PriceMin: "400000",
+                            PriceMax: "600000",
                             BedRange: "0-0",
                             BathRange: "0-0",
                             BuildingTypeId: "1",
@@ -433,7 +433,7 @@
                         cookieData += `LatitudeMin=${maxmin.minx}&`;
                         cookieData += `LatitudeMax=${maxmin.maxx}&`;
                         cookieData +=
-                            "PriceMin=600000&PriceMax=800000&BuildingTypeId=1&ConstructionStyleId=3&BedRange=0-0&BathRange=0-0&ParkingSpaceRange=0-0&viewState=m&Longitude=-80.30859375&Latitude=43.426769256591&PolygonPoints=";
+                            "PriceMin=400000&PriceMax=600000&BuildingTypeId=1&ConstructionStyleId=3&BedRange=0-0&BathRange=0-0&ParkingSpaceRange=0-0&viewState=m&Longitude=-80.30859375&Latitude=43.426769256591&PolygonPoints=";
                         cookieData += alatlng.join(",");
                         cookieData += "&PolyZoomLevel=16@*@2015 - 5 - 10~";
 
