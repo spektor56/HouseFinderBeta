@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html ng-app="listingsApp">
+<head>
+    <title>Realtor Listings</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!-- Your application bootstrap  -->
+
+
+
+
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--
+        <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-core.js"></script>
+        <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-service.js"></script>
+        <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+        <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+        -->
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/listings.js"></script>
+</head>
+<body ng-app="BlankApp" ng-cloak>
+
+    <script type="text/javascript">
+        /**
+         * You must include the dependency on 'ngMaterial'
+         */
+        angular.module('BlankApp', ['ngMaterial']);
+    </script>
+    <div id="map"></div>
+    <div id="top-ui">
+        <!--
+        <div class="search btn-group hovering-ui">
+            <input id="search-input" value="Cambridge" type="text"/>
+            <div class="btn btn-action" id="search-btn">Search</div>
+        </div>
+        -->
+    </div>
+    <div id="bottom-ui" class="hovering-ui">
+        <div class="time-ui">
+
+            <div class="time-ui-bottom">
+                <div id="travel-time-ui">
+                    <p class="label">Travel time (m)</p>
+                    <ul class="btn-group clearfix">
+                        <input id="travel-time" type="number" value="15" />
+                    </ul>
+                </div>
+                <div id="clear-map">
+                    <p class="label hidden">Clear Map</p>
+                    <div>
+                        <span class="btn" id="clear-map">Clear Map</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right-ui" class="hovering-ui">
+        <div class="search btn-group hovering-ui">
+            <div class="btn btn-action" id="copy-btn">Copy</div>
+        </div>
+    </div>
+    <div id="full-ui" style="display: none;">
+        <div style="display: table; height: 100%; table-layout: fixed; width: 100%;">
+            <div style="display: table-row; width: 100%">
+                <div style="overflow: auto; width: 100%;">
+                    <div class="search btn-group hovering-ui">
+                        <div class="btn btn-action" style="float: right" id="close-btn">Close</div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: table-row; height: 100%; width: 100%;">
+                <div style="height: 100%">
+                    <textarea style="height: 100%; width: 100%;" id="cookieText"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="ListingsController as listings" style="background-color: rgb(153, 206, 254);">
+
+
+        <span>{{listings.getTotal()}} Results</span>
+
+        <div layout="column">
+            <md-card style="background-color: #fff; margin: 10px; padding: 10px;" ng-repeat="house in listings.houses | orderBy:totalTime">
+
+                <a href="http://www.realtor.ca/PropertyDetails.aspx?PropertyId={{house.Id}}" target="_blank">
+                    <img ng-src="{{house.Property.Photo[0].HighResPath}}" />
+                </a>
+                <div>
+                    <ol>
+                        <li>
+                            <span><b>Price: </b> {{house.Property.Price}}</span>
+                        </li>
+                        <li>
+                            <span><b>Total Travel Time: </b> {{(house.toTravelTime + house.fromTravelTime)/60 | number:1}} Minutes</span>
+                        </li>
+                        <li>
+                            <span><b>To Work: </b> {{house.toTravelTime/60 | number:1}} Minutes</span>
+                        </li>
+                        <li>
+                            <span><b>From Work: </b> {{house.fromTravelTime/60 | number:1}} Minutes </span>
+                        </li>
+                        <li>
+                            <span><b>Square Feet: </b> {{house.Building.SizeInterior}} </span>
+                        </li>
+                        <li>
+                            <span><b>Frontage: </b> {{house.Land.SizeFrontage}} </span>
+                        </li>
+                    </ol>
+                </div>
+
+
+            </md-card>
+        </div>
+    </div>
+    <script src="js/javascript.util.js"></script>
+    <script src="js/jsts.js"></script>
+    </body>
+</html>
