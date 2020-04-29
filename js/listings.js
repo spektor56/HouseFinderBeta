@@ -373,7 +373,7 @@
                                         const matrixParms1 = {
                                             apikey: "5Sb54Nw_2WiakiQ7nrGy0-EvJj3YafztmbAucJIR_D4",
                                             mode: "fastest;car;traffic:enabled",
-                                            waypoint0: `geo!${43.414421},${-80.286290}`,
+                                            waypoint0: `geo!${coord.lat},${coord.lng}`,
                                             waypoint1: `geo!${house.Property.Address.Latitude},${house.Property.Address
                                                 .Longitude}`,
                                             departure: "2015-04-22T18:00:00"
@@ -395,7 +395,7 @@
                                             mode: "fastest;car;traffic:enabled",
                                             waypoint0: `geo!${house.Property.Address.Latitude},${house.Property.Address
                                                 .Longitude}`,
-                                            waypoint1: `geo!${43.414421},${-80.286290}`,
+                                            waypoint1: `geo!${coord.lat},${coord.lng}`,
                                             departure: "2015-04-22T08:30:00"
                                         };
 
