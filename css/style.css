@@ -1,1 +1,439 @@
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
 
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+/* GENERAL
+/* * * * * * * * * * * * * * * * * * * * * */
+
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/*
+/* TYPO
+/* * * * * * * * * * * * * * * * * * * * * */
+
+sup {
+    position: relative;
+    top: -0.5em;
+    margin-left: 0.1em;
+    font-size: 60%;
+}
+
+.label {
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/*
+/* MAP
+/* * * * * * * * * * * * * * * * * * * * * */
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.leaflet-right .leaflet-control {
+    margin-right: 20px;
+}
+
+.leaflet-top .leaflet-control {
+    margin-top: 20px;
+}
+
+.leaflet-bar a:first-child {
+    border-radius: 2px 2px 0 0;
+    background: #464b57;
+    color: #a2aab3;
+}
+
+.leaflet-bar a:last-child {
+    border-radius: 0 0 2px 2px;
+    background: #464b57;
+    color: #a2aab3;
+}
+
+.leaflet-bar {
+    -webkit-box-shadow: 0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 16px rgba(0,0,0,0.1);
+    box-shadow: 0 0 16px rgba(0,0,0,0.1);
+}
+
+.leaflet-container {
+    cursor: default;
+}
+
+.leaflet-dragging .leaflet-container {
+    cursor: move;
+}
+
+.leaflet-tile {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    -webkit-filter: grayscale(1);
+    filter: gray; /* IE6-9 */
+    opacity: 0.9;
+}
+
+/*
+/* GENERAL UI
+/* * * * * * * * * * * * * * * * * * * * * */
+
+.hovering-ui {
+    -webkit-box-shadow: 0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 16px rgba(0,0,0,0.1);
+    box-shadow: 0 0 16px rgba(0,0,0,0.1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+
+input {
+    margin: 0;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+    input[type=text] {
+        padding: 8px 12px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        border: none;
+        color: #32363e;
+        width: 270px;
+    }
+
+/*
+/* Button
+* * * * * */
+
+.btn {
+    display: inline-block;
+    border-radius: 2px;
+    /*border: 1px solid #f4f4f4;*/
+    padding: 6px 12px;
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+    .btn:hover,
+    .btn-group li:hover {
+        color: #fff;
+    }
+
+
+.btn-action {
+    border: none;
+    padding: 10px 14px;
+    background: #464b57;
+    color: #fff;
+    font-weight: 600 !important;
+}
+
+    .btn-action:hover {
+        border: none;
+        padding: 10px 14px;
+        background: #575D69;
+        color: #fff;
+        font-weight: 600 !important;
+    }
+
+/*
+/* Button Group
+* * * * * * * */
+
+.btn-group {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+    .btn-group > *:last-child {
+        border-radius: 0 2px 2px 0;
+        margin-right: 0;
+        color: #a2aab3;
+    }
+
+    .btn-group > *:first-child {
+        border-radius: 2px 0 0 2px;
+        color: #a2aab3;
+    }
+
+/*
+/* Segmented Control
+* * * * * * * * * * */
+
+/*
+ *	Multiselect and Segmented Control
+ *	Make individual classes for individual styling
+ */
+
+.segment {
+    padding: 6px 12px;
+    line-height: 16px;
+    background: #464b57;
+    border-right: 1px solid #eee;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+    .segment:last-child {
+        border: none;
+    }
+
+.btn-group .segment:first-child {
+    padding-left: 0;
+}
+
+.segment.active, .btn.active {
+    color: white;
+    backround-color: #464b57;
+    font-weight: 400;
+}
+
+.btn-group.btn-like .segment {
+    padding: 10px 16px;
+}
+
+/*
+/* INDIVIDUAL UI
+* * * * * * * * * * * * * * * * * */
+
+#top-ui, #bottom-ui, #right-ui, #full-ui {
+    position: absolute;
+}
+
+#top-ui {
+    top: 0;
+    width: 450px;
+    margin: 20px 0 0 20px;
+}
+
+    #top-ui .btn-group {
+        width: 350px;
+    }
+
+.search-input {
+    width: 300px;
+}
+
+#display-mode-ui {
+    display: inline-block;
+}
+
+.info-button {
+    width: 40px;
+    height: 40px;
+    background-color: #464b57;
+    padding-top: 10px;
+    font-size: 20px;
+    float: right;
+    text-align: center;
+    border-radius: 100%;
+}
+
+    .info-button a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+/* Bottom UI
+* * * * * * * * */
+
+#bottom-ui {
+    bottom: 0;
+    padding: 20px 20px 10px 20px;
+    margin: 0 20px 20px 20px;
+    background: #464b57;
+    text-align: center;
+    color: #a2aab3;
+}
+
+#right-ui {
+    top: 0;
+    right: 0;
+    margin: 20px 20px 20px 0;
+}
+
+#full-ui {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 10px 20px;
+    background: #464b57;
+    color: #a2aab3;
+}
+
+
+.time-ui {
+    text-align: left;
+}
+
+.timeline-ui {
+    margin-bottom: 20px;
+}
+
+.time-ui-bottom > div {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 25px;
+}
+
+.time-ui-bottom div:last-child {
+    margin-right: 0;
+}
+
+#timeline .segment {
+    font-size: 14px;
+    padding: 6px 8px;
+}
+
+    #timeline .segment.highlight {
+        background-color: #32363e;
+    }
+
+    #timeline .segment:hover {
+        background-color: #fff;
+        color: #2ebacf;
+        font-weight: 400;
+    }
+
+#clear-map {
+    float: right;
+}
+
+/* SVG
+* * * * * * * * */
+
+path.polygon {
+}
+
+path.car-polygon {
+    stroke: #37d8f1;
+    stroke-width: 1.2;
+    stroke-opacity: 0.25;
+    fill: #37d8f1;
+    fill-opacity: 0.05;
+}
+
+path.pedestrian-polygon {
+    fill: #0967E0;
+    fill-opacity: 0.7;
+    stroke: #0967E0;
+    stroke-opacity: 0.8;
+}
+
+path.car-maximum,
+path.car-minimum {
+    stroke: #fff;
+    stroke-width: 1px;
+    stroke-opacity: 0.0;
+}
+
+.pedestrian-polygon.highlight,
+.car-polygon.highlight {
+    stroke: #fff;
+    stroke-width: 2px;
+    stroke-opacity: 0.9;
+}
+
+.pedestrian-collection.hidden,
+.car-collection.hidden {
+    display: none;
+}
+
+.marker circle,
+.location-marker path {
+    fill: #fff;
+}
+
+
+/*
+/* clar-fix
+* * * * * */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
